@@ -19,19 +19,19 @@ if len(sys.argv) == 2:
     if pure_salary <=1500: 
         ratio = 0.03
         extra = 0
-    elif pure_salary > 1500 and pure_salary <= 4500:
+    elif pure_salary <= 4500:
         ratio = 0.10
         extra = 105
-    elif pure_salary > 4500 and pure_salary <= 9000:
+    elif pure_salary <= 9000:
         ratio = 0.20
         extra = 555
-    elif pure_salary > 9000 and pure_salary <= 35000:
+    elif pure_salary <= 35000:
         ratio = 0.25
         extra = 1005
-    elif pure_salary > 35000 and pure_salary <= 55000:
+    elif pure_salary <= 55000:
         ratio = 0.30
         extra = 2755
-    elif pure_salary > 55000 and pure_salary <= 80000:
+    elif pure_salary <= 80000:
         ratio = 0.35
         extra = 5505
     else:

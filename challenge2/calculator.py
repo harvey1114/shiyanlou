@@ -7,19 +7,19 @@ def cal_salary(salary):
     if s1 <=1500: 
         ratio = 0.03
         extra = 0
-    elif s1 > 1500 and s1 <= 4500:
+    elif s1 <= 4500:
         ratio = 0.10
         extra = 105
-    elif s1 > 4500 and s1 <= 9000:
+    elif s1 <= 9000:
         ratio = 0.20
         extra = 555
-    elif s1 > 9000 and s1 <= 35000:
+    elif s1 <= 35000:
         ratio = 0.25
         extra = 1005
-    elif s1 > 35000 and s1 <= 55000:
+    elif s1 <= 55000:
         ratio = 0.30
         extra = 2755
-    elif s1 > 55000 and s1 <= 80000:
+    elif s1 <= 80000:
         ratio = 0.35
         extra = 5505
     else:
