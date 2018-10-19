@@ -8,14 +8,17 @@ from multiprocessing import Process,Queue,Pool
 
 
 def parserargs():
-    shortargs = 'C:c:d:o:'
-    longargs = []
+    shortargs = 'C:c:d:o:h'
+    longargs = ['help']
     opts,args = getopt.getopt(sys.argv[1:],shortargs,longargs)
     adict = {}
     for i,j in opts:
-        adict[i] = j
-
-    return adict
+        if i in ('-h','--help'):
+            print('Usage: calculator.py -C cityname -c configfile -d userdata -o resultdata')
+            sys.exit()
+        else:
+            adict[i] = j
+    return adict,args
             
     
 def parserconfig(section):
@@ -51,7 +54,7 @@ def cal_salary(nid,salary):
             continue
         else:
             p += float(value)
-    print(p)
+    #print(p)
     if salary < min_s:
         insure = min_s * p
     elif salary > max_s:
@@ -111,18 +114,10 @@ def export(q2,default='csv'):
 
 
 if __name__ == '__main__':
-    args_dict = parserargs()
-    
+    args_dict,largs = parserargs()
     config_dict = parserconfig(args_dict['-C']) 
-    print(config_dict)
-    #print(args_dict)
-
-    #print(opts['c'])
     queue1 = Queue()
     queue2 = Queue()
-    #args_dict = Args.get_args(sys.argv)
-    #c = Config()
-    #config_dict = c.config
     Process(target=_read_users_data,args=(queue1,)).start()
     Process(target=calc_for_all_userdata,args=(queue1,queue2)).start()
     Process(target=export,args=(queue2,)).start()
