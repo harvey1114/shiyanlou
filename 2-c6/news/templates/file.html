@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+
+{% macro show_file(filecontent) %}
+<p>title:{{ filecontent.title }}</p>
+<p>created_time:{{ filecontent.created_time }}</p>
+<p>content:{{ filecontent.content }}</p>
+{% endmacro %}
+
+
+{% block content %}
+    {{ show_file(filecontent) }}
+{% endblock %}
