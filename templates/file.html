@@ -1,0 +1,10 @@
+{% extends 'base.html' %}
+
+{% macro show_file(filecontent) %}
+<p>{{ filecontent }}</p>
+{% endmacro %}
+
+
+{% block content %}
+    {{ show_file(filecontent) }}
+{% endblock %}
