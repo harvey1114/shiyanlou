@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <ul>
+    {% for key,value in dict_file.items() %}
+    <li><a href={{ value }}>{{ key }}</a></li>
+    {% endfor %}
+    </url>
+{% endblock %}
+
