@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <ul>
+    {% for file in file_list %}
+    <li>
+    <a href={{ file['path'] }}>{{ file['title'] }}</a>
+    <p>{{file['tags']}}</p>
+    </li>
+    {% endfor %}
+    </url>
+{% endblock %}
+
