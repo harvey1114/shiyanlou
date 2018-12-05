@@ -1,0 +1,13 @@
+from flask import Blueprint,render_template
+from simpledu.models import User
+
+user = Blueprint('user',__name__,url_prefix='/user')
+
+@user.route('/<username>')
+def index(username):
+    user = User.query.filter_by(username=username).first()
+    if user is None:
+        return '404'
+    else:
+        return render_template('detail.html',user=user)
+
